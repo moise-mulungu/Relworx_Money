@@ -86,4 +86,20 @@
   }
   showActiveContent();
 
+  // handle LOGIN
+  loginButton.addEventListener('click', (e) => {
+    e.preventDefault();
+    const username = loginUsername.value;
+    const password = loginPassword.value;
+    const user = localData.data.users.find((u) => u.username === username && u.password === password);
+    if (user) {
+      localData.data = { ...localData.data, loggedInUsername: user.username };
+      loginPassword.value = '';
+      // window.location.reload(); // not needed. see the comments above the Proxy object above
+    } else {
+      alert('password or username is incorrect');
+    }
+  });
+
+
 })();
