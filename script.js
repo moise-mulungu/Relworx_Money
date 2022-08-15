@@ -117,5 +117,12 @@
   
   });
 
+  // handle LOGOUT
+  logoutButton.addEventListener('click', () => {
+    console.log('clicked logout button');
+    localData.data = { ...localData.data, loggedInUsername: undefined };
+  });
+
+
 
 })();
