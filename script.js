@@ -137,6 +137,21 @@
     viewBalanceContainer.style.display = 'none';
   })
 
+  // build pay other users element
+  function buildPayOtherUsersDropdown(data) {
+    while (selectUserDropdown.options.length) selectUserDropdown.remove(0);
+    data.users
+      .filter((u) => !['admin', data.loggedInUsername].includes(u.username))
+      .forEach((user) => {
+        const option = document.createElement('option');
+        option.value = user.username;
+        option.text = user.name;
+        selectUserDropdown.appendChild(option);
+      });
+  }
+  buildPayOtherUsersDropdown(localData.data);
+
+
 
 
 })();
