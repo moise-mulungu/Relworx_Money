@@ -102,4 +102,20 @@
   });
 
 
+
+  // handle SIGN UP
+  signupButton.addEventListener('click', (e) => {
+    e.preventDefault();
+
+    const name = document.getElementById('signupName').value;
+    const username = document.getElementById('signupUsername').value;
+    const password = document.getElementById('signupPassword').value;
+    const user = {name, password, username, balance: 100};
+    localData.data.users.push(user);
+      localData.data = { ...localData.data, loggedInUsername: user.username };
+    loginPassword.value = '';
+  
+  });
+
+
 })();
