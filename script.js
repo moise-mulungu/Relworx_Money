@@ -1,19 +1,24 @@
-const userName = document.getElementById('username');
-const password = document.getElementById('password');
-const loginBtn = document.getElementById('login');
-const signUpBtn = document.getElementById('sign-up');
-
-loginBtn.addEventListener('click',(e) => {
-    e.preventDefault();
-    const user = userName.value;
-    const pass = password.value;
+(() => {
+    const localStorageKey = 'relworxLocalData-applicant: Moise'; // unique - reviewer has other localStorage keys set
+    const getLocalStorage = () => JSON.parse(localStorage.getItem(localStorageKey));
+    const setLocalStorage = (value) => {
+      try {
+        localStorage.setItem(localStorageKey, JSON.stringify(value, null, 2));
+      } catch (e) {
+        alert('unable to set localStorage, please clear your cookies ... what is the actual chrome browser setting?');
+      }
+    };
     
-    if (user && pass) {
-        localStorage.setItem(user, pass);
-        location.reload();
-        signUpBtn.style.display = 'block';
-
-    }
-    
-}
-);
+    const defaultUserData = { username: '', password: '', name: '', balance: 100, payments: [] };
+  const defaultData = {
+    // set property values in the next 2 lines to undefined when you code the sign-up functionality
+    myUsername: 'bernard',
+    loggedInUsername: 'bernard',
+    users: [
+      { ...defaultUserData, name: 'Gertrude', username: 'gertrude', password: 'abc' },
+      { ...defaultUserData, name: 'Hortencia', username: 'hortencia', password: 'abc' },
+      { ...defaultUserData, name: 'Bernard', username: 'bernard', password: 'abc' },
+      { ...defaultUserData, name: 'Admin', username: 'admin', password: 'abc', balance: Infinity },
+    ],
+  };
+})();
