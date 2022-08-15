@@ -123,6 +123,20 @@
     localData.data = { ...localData.data, loggedInUsername: undefined };
   });
 
+  toSignUpLink.addEventListener('click', (e) => {
+    e.preventDefault();
+    loginContainer.style.display =  'none';
+    signUpContainer.style.display = 'block';
+    viewBalanceContainer.style.display = 'none';
+  })
+
+  toSignInLink.addEventListener('click', (e) => {
+    e.preventDefault();
+    loginContainer.style.display =  'block';
+    signUpContainer.style.display = 'none';
+    viewBalanceContainer.style.display = 'none';
+  })
+
 
 
 })();
