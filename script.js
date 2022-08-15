@@ -47,7 +47,43 @@
    const payAmount = document.getElementById('pay-amount');
    const payButton = document.getElementById('payButton');
    const logoutButton = document.getElementById('logoutButton');
- 
 
+   // anytime you assign a value to localData.data the set() function below will run
+   const proxyTargetObj = {};
+   const localData = new Proxy(proxyTargetObj, {
+     set(target, key, value) {
+       console.log(`Proxy handler: ${key} set to ${JSON.stringify(value, null, 2)}`);
+       target[key] = value;
+       setLocalStorage(value);
+       showActiveContent();
+ 
+       // now, here you can "react" to changes in state by setting values to DOM elements
+ 
+       if (value.loggedInUsername) {
+         const user = localData.data.users.find((u) => u.username === value.loggedInUsername);
+         if (user) {
+           nameContainer.innerHTML = user.name;
+           balanceContainer.innerHTML = user.balance;
+         }
+       }
+ 
+       buildPayOtherUsersDropdown(value);
+ 
+       return true;
+     },
+   });
+
+   localData.data = getLocalStorage() || defaultData;
+
+  // align container visibility to localData
+  function showActiveContent() {
+    const { myUsername, loggedInUsername } = localData.data;
+    const anyUserIsLoggedIn = loggedInUsername;
+    const userHasNoAccount = myUsername === undefined && loggedInUsername === undefined;
+    loginContainer.style.display = anyUserIsLoggedIn ? 'none' : 'block';
+    signUpContainer.style.display = userHasNoAccount ? 'block' : 'none';
+    viewBalanceContainer.style.display = anyUserIsLoggedIn ? 'block' : 'none';
+  }
+  showActiveContent();
 
 })();
