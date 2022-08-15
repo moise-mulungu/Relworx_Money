@@ -31,4 +31,13 @@
   const loginButton = document.getElementById('loginButton');
   const toSignInLink = document.getElementById('to-sign-in');
 
+  // sign up
+  const signUpContainer = document.getElementById('sign-up-container');
+  const signupName = document.getElementById('signupName');
+  const signupUsername = document.getElementById('signupUsername');
+  const signupPassword = document.getElementById('signupPassword');
+  const signupButton = document.getElementById('signupButton');
+  const toSignUpLink = document.getElementById('to-sign-up');
+
+
 })();
