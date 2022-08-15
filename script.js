@@ -151,7 +151,31 @@
   }
   buildPayOtherUsersDropdown(localData.data);
 
+  payButton.addEventListener('click', (e) => {
+    e.preventDefault();
+    
+    console.log('clicked pay button');
+    const users = localData.data.users;
+    const loggedInUsername = localData.data.loggedInUsername;
+    const payeeUsername = selectUserDropdown.options[selectUserDropdown.selectedIndex].value;
+    const amount = Number(payAmount.value) || 0;
 
+    const sender = users.find((u) => u.username === loggedInUsername);
+    const receiver = users.find((u) => u.username === payeeUsername);
+    if (sender.balance < amount) {
+      alert('you do not have enough money in your account');
+    }
+    else {
+
+      sender.balance -= amount;
+      receiver.balance += amount;
+      payAmount.value = '';
+      alert(`${sender.name} paid ${receiver.name} $${amount}`);
+      sender.payments.push({payeeUsername, amount});
+      setLocalStorage(localData.data);
+      window.location.reload();
+    }
+  });
 
 
 })();
