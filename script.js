@@ -39,5 +39,15 @@
   const signupButton = document.getElementById('signupButton');
   const toSignUpLink = document.getElementById('to-sign-up');
 
+   // account
+   const viewBalanceContainer = document.getElementById('view-balance-container');
+   const nameContainer = document.getElementById('name-container');
+   const balanceContainer = document.getElementById('balance-container');
+   const selectUserDropdown = document.getElementById('select-user');
+   const payAmount = document.getElementById('pay-amount');
+   const payButton = document.getElementById('payButton');
+   const logoutButton = document.getElementById('logoutButton');
+ 
+
 
 })();
