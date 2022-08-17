@@ -1,3 +1,46 @@
-.sign-up-container {
-    display: none;
+.login-page {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.login-form {
+    height: 30vh;
+    width: 100vw;
+    display: flex;
+    flex-flow: column;
+    position: relative;
+    /* gap: 10px; */
+  }
+
+  .login-form * {
+    box-sizing: border-box;
+    padding: 10px;
+  }
+
+  .login-page h1 {
+    text-align: center;
+    background-color: #04356d;
+    color: white;
+    padding: 20px 0;
+  }
+  
+.signup-form {
+    height: 45vh;
+    width: 100vw;
+    display: flex;
+    flex-flow: column;
+    position: relative;
+}
+
+.signup-form * {
+    box-sizing: border-box;
+    padding: 10px;
+}
+
+.signup-container h1 {
+    text-align: center;
+    background-color: #04356d;
+    color: white;
+    padding: 20px 0;
 }
