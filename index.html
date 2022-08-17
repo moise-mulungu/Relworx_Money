@@ -29,24 +29,24 @@
         <input type="text" id="signupUsername" name="email" placeholder="Username" />
         <label for="Password">Password</label>
         <input type="Password" id="signupPassword" name="password" placeholder="Password" />
-        <input type="submit" value="Sign up" id="signupButton" />
+        <input type="submit" value="Sign up" id="signupButton"  class="signUp-button"/>
       </form>
       <a href="#" id="to-sign-in">Already have an account ?</a>
     </div>
 
-    <div class="view-balance-container" id="view-balance-container" style="display: none">
+    <div class="balance-container" id="view-balance-container" style="display: none">
       <h1>My Account</h1>
       <div>Name: <span id="name-container"></span></div>
       <div>Balance: <span id="balance-container"></span></div>
       <div>
         Pay another user:
-        <form>
+        <form class="balance-form">
           <select id="select-user"></select>
-          <input type="text" id="pay-amount" />
+          <input type="text" id="pay-amount" placeholder="$ amount" />
           <input type="submit" value="Pay" id="payButton" />
         </form>
       </div>
-      <div><input type="submit" value="Log Out" id="logoutButton" /></div>
+      <div><input type="submit" value="Log Out" id="logoutButton" class="logout-button"/></div>
     </div>
 
     <script src="script.js"></script>
