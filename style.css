@@ -29,8 +29,12 @@
   .login-button {
     margin-top: 10px;
   }
+
+  .signUp-container {
+    display: none;
+  }
   
-.signup-form {
+.signUp-form {
     height: 45vh;
     width: 100%;
     display: flex;
@@ -38,12 +42,12 @@
     position: relative;
 }
 
-.signup-form * {
+.signUp-form * {
     box-sizing: border-box;
     padding: 10px;
 }
 
-.signup-container h1 {
+.signUp-container h1 {
     text-align: center;
     background-color: #04356d;
     color: white;
