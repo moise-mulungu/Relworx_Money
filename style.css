@@ -30,6 +30,13 @@
     margin-top: 10px;
   }
 
+  .login-button:hover {
+    cursor: pointer;
+    background-color: #0e923a;
+    border: transparent;
+    color: white;
+  }
+
   .signUp-container {
     display: none;
   }
@@ -54,8 +61,17 @@
     padding: 20px 0;
 }
 
+
+
 .signUp-button {
     margin-top: 10px;
+}
+
+.signUp-button:hover {
+    cursor: pointer;
+    background-color: #0e923a;
+    border: transparent;
+    color: white;
 }
 
 .balance-container {
@@ -80,6 +96,12 @@
     font-size: 22px;
 }
 
+.balance-container a {
+    /* text-decoration: none; */
+    color: #04356d;
+    margin-top: 10px;
+}
+
   .balance-form {
     display: flex;
     flex-direction: column;
@@ -92,10 +114,28 @@
     padding: 10px;
   }
 
+  .pay-button:hover {
+    cursor: pointer;
+    background-color: #0e923a;
+    border: transparent;
+    color: white;
+  }
+
   .logout-button {
     border-radius: 4px;
-    background-color: #055509;
+    background-color: #04356d;
     color: white;
+    border: 1px solid transparent;
     padding: 10px;
     margin-top: 10px;
+  }
+
+  .logout-button:hover {
+    background-color: #0e923a;
+    color: white;
+    cursor: pointer;
+  }
+
+  .transactions {
+    display: none;
   }
