@@ -48,6 +48,11 @@
    const payButton = document.getElementById('payButton');
    const logoutButton = document.getElementById('logoutButton');
 
+  //  transactions
+   const allTransactions = document.getElementById('all-transactions');
+   const toAllTransactions = document.getElementById('to-all-transactions');
+   const toViewBalance = document.getElementById('to-view-balance');
+
    // anytime you assign a value to localData.data the set() function below will run
    const proxyTargetObj = {};
    const localData = new Proxy(proxyTargetObj, {
@@ -136,6 +141,23 @@
     signUpContainer.style.display = 'none';
     viewBalanceContainer.style.display = 'none';
   })
+
+  toAllTransactions.addEventListener('click', (e) => {
+    e.preventDefault();
+    loginContainer.style.display =  'none';
+    signUpContainer.style.display = 'none';
+    viewBalanceContainer.style.display = 'none';
+    allTransactions.style.display = 'block';
+
+  })
+  toViewBalance.addEventListener('click', (e) => {
+    e.preventDefault();
+    loginContainer.style.display =  'none';
+    signUpContainer.style.display = 'none';
+    viewBalanceContainer.style.display = 'block';
+    allTransactions.style.display = 'none';
+  })
+
 
   // build pay other users element
   function buildPayOtherUsersDropdown(data) {
