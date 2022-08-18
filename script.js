@@ -5,7 +5,7 @@
     try {
       localStorage.setItem(localStorageKey, JSON.stringify(value, null, 2));
     } catch (e) {
-      alert('unable to set localStorage, please clear your cookies ... what is the actual chrome browser setting?');
+      alert('unable to set localStorage, please clear your cookies ... what is the actual chrome browser setting?'); // eslint-disable-line no-alert
     }
   };
 
@@ -65,10 +65,10 @@
   const proxyTargetObj = {};
   const localData = new Proxy(proxyTargetObj, {
     set(target, key, value) {
-      console.log(`Proxy handler: ${key} set to ${JSON.stringify(value, null, 2)}`);
+      console.log(`Proxy handler: ${key} set to ${JSON.stringify(value, null, 2)}`); // eslint-disable-line no-console
       target[key] = value;
       setLocalStorage(value);
-      showActiveContent();
+      showActiveContent(); // eslint-disable-line no-use-before-define
 
       // now, here you can "react" to changes in state by setting values to DOM elements
 
@@ -80,7 +80,7 @@
         }
       }
 
-      buildPayOtherUsersDropdown(value);
+      buildPayOtherUsersDropdown(value); // eslint-disable-line no-use-before-define
 
       return true;
     },
@@ -104,12 +104,12 @@
     e.preventDefault();
     const username = loginUsername.value;
     const password = loginPassword.value;
-    const user = localData.data.users.find((u) => u.username === username && u.password === password);
+    const user = localData.data.users.find((u) => u.username === username && u.password === password); // eslint-disable-line max-len
     if (user) {
       localData.data = { ...localData.data, loggedInUsername: user.username };
       loginPassword.value = '';
     } else {
-      alert('password or username is incorrect');
+      alert('password or username is incorrect'); // eslint-disable-line no-alert
     }
   });
 
@@ -132,7 +132,7 @@
 
   // handle LOGOUT
   logoutButton.addEventListener('click', () => {
-    console.log('clicked logout button');
+    console.log('clicked logout button'); // eslint-disable-line no-console
     localData.data = { ...localData.data, loggedInUsername: undefined };
   });
 
@@ -164,7 +164,7 @@
       paymentHis.innerHTML = `${payment.amount}$ sent to ${payment.payeeUsername}`;
       transactionsSection.appendChild(paymentCol);
       transactionsHistory.appendChild(paymentHis);
-      console.log(payment);
+      console.log(payment); // eslint-disable-line no-console
     });
     loginContainer.style.display = 'none';
     signUpContainer.style.display = 'none';
@@ -197,7 +197,7 @@
   payButton.addEventListener('click', (e) => {
     e.preventDefault();
 
-    console.log('clicked pay button');
+    console.log('clicked pay button'); // eslint-disable-line no-console
     const { users } = localData.data;
     const { loggedInUsername } = localData.data;
     const payeeUsername = selectUserDropdown.options[selectUserDropdown.selectedIndex].value;
@@ -211,7 +211,7 @@
     sender.balance -= amount;
     receiver.balance += amount;
     payAmount.value = '';
-    alert(`${sender.name} paid ${receiver.name} $${amount}`);
+    alert(`${sender.name} paid ${receiver.name} $${amount}`); // eslint-disable-line no-alert
     sender.payments.push({ payeeUsername, amount });
     setLocalStorage(localData.data);
     window.location.reload();

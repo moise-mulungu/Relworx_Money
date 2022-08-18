@@ -1,5 +1,7 @@
 {
     "cSpell.words": [
         "Relworx"
-    ]
+    ],
+    "eslint.enable": false
+    
 }
