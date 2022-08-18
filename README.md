@@ -19,6 +19,9 @@ Relworx is a prototype to demonstrate how people can receive and send money.
 `npm install`, then
 `npm run start`
 
+## Live Demo
+[live] (https://moise-mulungu.github.io/Relworx_Money/)
+
 👤 **Author : Moise Mulungu**
 
 - GitHub: [@moise-mulungu](https://github.com/moise-mulungu)
