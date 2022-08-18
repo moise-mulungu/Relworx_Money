@@ -9,6 +9,19 @@
       }
     };
 
+    // [{payerUsername, amt}, ...]
+    // //  (-)amt , payeeUsername
+    // // payments made:
+    // currentUser.payments.forEach(({payeeUsername, amt}) =>  {
+    //   // add dom node for this 'row'
+    // }); 
+    // payments received
+    // users.forEach(user=> {
+    //   user.payments.filter(({payeeUsername, amt})=> payeeUsername ===currentUsername).forEach(({amt})=> {
+    //     payerUsername = user.username
+    //     // add <tr> and 
+    //   })
+    // })
     const defaultUserData = { username: '', password: '', name: '', balance: 100, payments: [] };
   const defaultData = {
     // set property values in the next 2 lines to undefined when you code the sign-up functionality
@@ -52,6 +65,8 @@
    const allTransactions = document.getElementById('all-transactions');
    const toAllTransactions = document.getElementById('to-all-transactions');
    const toViewBalance = document.getElementById('to-view-balance');
+   const transactionsSection = document.getElementById('transactions-section');
+   const transactionsHistory = document.getElementById('transactions-history');
 
    // anytime you assign a value to localData.data the set() function below will run
    const proxyTargetObj = {};
@@ -116,7 +131,7 @@
     const username = document.getElementById('signupUsername').value;
     const password = document.getElementById('signupPassword').value;
     const user = {name, password, username, balance: 100};
-    localData.data.users.push(user);
+    localData.data.users.push({...defaultUserData,name, password, username});
       localData.data = { ...localData.data, loggedInUsername: user.username };
     loginPassword.value = '';
   
@@ -128,6 +143,7 @@
     localData.data = { ...localData.data, loggedInUsername: undefined };
   });
 
+  // Handle links to other pages
   toSignUpLink.addEventListener('click', (e) => {
     e.preventDefault();
     loginContainer.style.display =  'none';
@@ -144,12 +160,25 @@
 
   toAllTransactions.addEventListener('click', (e) => {
     e.preventDefault();
+    const { loggedInUsername } = localData.data;
+    const user = localData.data.users.find((u) => u.username === loggedInUsername);
+    user.payments.forEach((payment) => {
+      const paymentCol = document.createElement('div');
+      const paymentHis = document.createElement('li');
+      paymentCol.className = "transaction-block";
+      paymentCol.style.height = `${payment.amount}px`;
+      paymentCol.title = `${payment.amount}$ sent to ${payment.payeeUsername}`;
+      paymentHis.innerHTML = `${payment.amount}$ sent to ${payment.payeeUsername}`;
+      transactionsSection.appendChild(paymentCol);
+      transactionsHistory.appendChild(paymentHis);
+      console.log(payment);
+    })
     loginContainer.style.display =  'none';
     signUpContainer.style.display = 'none';
     viewBalanceContainer.style.display = 'none';
     allTransactions.style.display = 'block';
-
   })
+
   toViewBalance.addEventListener('click', (e) => {
     e.preventDefault();
     loginContainer.style.display =  'none';
@@ -184,19 +213,19 @@
 
     const sender = users.find((u) => u.username === loggedInUsername);
     const receiver = users.find((u) => u.username === payeeUsername);
-    if (sender.balance < amount) {
-      alert('you do not have enough money in your account');
-    }
-    else {
+    
+    if (sender.balance < amount) return
+    
 
       sender.balance -= amount;
       receiver.balance += amount;
       payAmount.value = '';
       alert(`${sender.name} paid ${receiver.name} $${amount}`);
       sender.payments.push({payeeUsername, amount});
+      // dry - d on ot repeat yourself
       setLocalStorage(localData.data);
       window.location.reload();
-    }
+    
   });
 
 

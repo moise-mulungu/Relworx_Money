@@ -46,24 +46,17 @@
           <input type="submit" value="Pay" id="payButton" class="pay-button"/>
         </form>
       </div>
-      <a href="#" id="to-all-transactions">See your transactions</a>
+      <a href="#" id="to-all-transactions">See recent transactions</a>
       <div><input type="submit" value="Log Out" id="logoutButton" class="logout-button"/></div>
     </div>
     <div class="transactions" id="all-transactions">
-      <h1>Transactions</h1>
-      <table id="transactions-table">
-        <thead>
-          <tr>
-            <th>Date</th>
-            <th>User</th>
-            <th>Amount</th>
-          </tr>
-        </thead>
-        <tbody>
-        </tbody>
-      </table>
-      <a href="#" id="to-view-balance">Back to my account</a>
+      <h1>Recent transactions</h1>
+      <div id="transactions-section">
+      </div>
+      <ul id="transactions-history" class="history">
 
+      </ul>
+      <a href="#" id="to-view-balance">Back to my account</a>
     </div>
 
     <script src="script.js"></script>
