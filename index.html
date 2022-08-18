@@ -1,38 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Relworx Money</title>
     <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <div>
-        <h1>Login</h1>
-        <form >
-            <label for="username">Username</label>
-            <input type="text" id="username" name="username" placeholder="Username">
-            <label for="password">Password</label>
-            <input type="password" id="password" name="password" placeholder="Password">
-            <input type="submit" value="Login" id="login">
-        </form>
-        <p> Sign up here <a href=""></a></p>       
+  </head>
+  <body>
+    <div id="login-container" class="login-page">
+      <h1>Login</h1>
+      <form class="login-form">
+        <label for="loginUsername">Username</label>
+        <input type="text" id="loginUsername" name="username" placeholder="Username" />
+        <label for="loginPassword">Password</label>
+        <input type="password" id="loginPassword" name="password" placeholder="Password" />
+        <input type="submit" value="Login" id="loginButton" class="login-button"/> 
+      </form>
+      <a href="#" id="to-sign-up">Create an account</a>
     </div>
-    <div class="sign-up-container" id="sign-up">
-        <h1>Sign up</h1>
-        <form >
-            <label for="name">Name</label>
-            <input type="text" name="name" id="name" placeholder="Name">
-            <label for="email">Email</label>
-            <input type="text" id="email" name="email" placeholder="Email">
-            <label for="Password">Password</label>
-            <input type="Password" id="Password" name="password" placeholder="Password">
-            <input type="submit" value="Sign up">
+    <div class="signUp-container" id="sign-up-container" >
+      <h1>Sign up</h1>
+      <form class="signUp-form">
+        <label for="signupName">Name</label>
+        <input type="text" name="name" id="signupName" placeholder="Name" />
+        <label for="signupUsername">Username</label>
+        <input type="text" id="signupUsername" name="email" placeholder="Username" />
+        <label for="signupPassword">Password</label>
+        <input type="Password" id="signupPassword" name="password" placeholder="Password" />
+        <input type="submit" value="Sign up" id="signupButton"  class="signUp-button"/>
+      </form>
+      <a href="#" id="to-sign-in">Already have an account ?</a>
+    </div>
+    <div class="balance-container" id="view-balance-container" >
+      <h1>My Account</h1>
+      <div>Name: <span id="name-container"></span></div>
+      <div>Balance: <span id="balance-container"></span></div>
+      <div>
+        Pay another user:
+        <form class="balance-form">
+          <select id="select-user"></select>
+          <input type="text" id="pay-amount" placeholder="$ amount" />
+          <input type="submit" value="Pay" id="payButton" class="pay-button"/>
         </form>
-        <p> Log in here <a href=""></a></p>         
+      </div>
+      <a href="#" id="to-all-transactions">See recent transactions</a>
+      <div><input type="submit" value="Log Out" id="logoutButton" class="logout-button"/></div>
+    </div>
+    <div class="transactions" id="all-transactions">
+      <h1>Recent transactions</h1>
+      <div id="transactions-section">
+      </div>
+      <ul id="transactions-history" class="history">
+
+      </ul>
+      <a href="#" id="to-view-balance">Back to my account</a>
     </div>
 
-    <script src="script.js"></script> 
-</body>
+    <script src="script.js"></script>
+
+  </body>
 </html>
