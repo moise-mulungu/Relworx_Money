@@ -12,15 +12,15 @@ Relworx is a prototype to demonstrate how people can receive and send money.
 - JavaScript
 
 ## Get to your local:
-[clone](git@github.com:moise-mulungu/Relworx_Money.git) 
+- [clone](git@github.com:moise-mulungu/Relworx_Money.git) 
 
 ## Get started, run:
-`live server`, or
-`npm install`, then
-`npm run start`
+``live server``, or
+``npm install``, then
+``npm run start``
 
 ## Live Demo
-[live] (https://moise-mulungu.github.io/Relworx_Money/)
+- [live](https://moise-mulungu.github.io/Relworx_Money/)
 
 👤 **Author : Moise Mulungu**
 
